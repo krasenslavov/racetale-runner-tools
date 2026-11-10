@@ -1,0 +1,29 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "racetale-pace"
+version = "1.0.0"
+description = "Running maths with no dependencies: pace, finish time, Riegel race predictions, split plans, heart rate zones, spectator passing times and GPX trimming."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+requires-python = ">=3.9"
+authors = [{ name = "RaceTale", email = "contact@racetale.com" }]
+keywords = ["running", "pace", "marathon", "race", "splits", "pace-calculator", "heart-rate-zones", "gpx", "parkrun"]
+classifiers = [
+  "Intended Audience :: Developers",
+  "Operating System :: OS Independent",
+  "Programming Language :: Python :: 3",
+  "Topic :: Software Development :: Libraries",
+  "Typing :: Typed",
+]
+
+[project.urls]
+Homepage = "https://blog.racetale.com/tools/"
+Source = "https://github.com/krasenslavov/racetale-runner-tools"
+Issues = "https://github.com/krasenslavov/racetale-runner-tools/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/racetale_pace"]

@@ -1,0 +1,12 @@
+{
+  "name": "runner-tools",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build:extension": "node scripts/build-extension.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0"
+  }
+}

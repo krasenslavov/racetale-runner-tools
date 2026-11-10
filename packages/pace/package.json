@@ -1,0 +1,58 @@
+{
+  "name": "racetale-pace",
+  "version": "1.0.0",
+  "description": "Running maths with no dependencies: pace, finish time, Riegel race predictions, split plans, heart rate zones, spectator passing times and GPX start/finish trimming.",
+  "keywords": [
+    "running",
+    "pace",
+    "marathon",
+    "race",
+    "splits",
+    "pace-calculator",
+    "heart-rate-zones",
+    "gpx",
+    "parkrun"
+  ],
+  "license": "MIT",
+  "author": "RaceTale <contact@racetale.com> (https://racetale.com)",
+  "homepage": "https://blog.racetale.com/tools/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/krasenslavov/racetale-runner-tools.git",
+    "directory": "packages/pace"
+  },
+  "bugs": {
+    "url": "https://github.com/krasenslavov/racetale-runner-tools/issues"
+  },
+  "type": "module",
+  "sideEffects": false,
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    }
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "build": "node build.mjs",
+    "prepublishOnly": "node build.mjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.0",
+    "typescript": "^5.6.0"
+  }
+}

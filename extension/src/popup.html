@@ -1,0 +1,125 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>RaceTale Pace Tools</title>
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body>
+    <header>
+      <img src="icons/icon-48.png" alt="" width="28" height="28" />
+      <h1>RaceTale Pace Tools</h1>
+    </header>
+
+    <fieldset class="seg">
+      <legend>Units</legend>
+      <label><input type="radio" name="unit" value="km" checked /> km</label>
+      <label><input type="radio" name="unit" value="mi" /> miles</label>
+    </fieldset>
+
+    <div class="tabs" role="tablist">
+      <button role="tab" aria-selected="true" aria-controls="p-pace" id="t-pace">Pace</button>
+      <button role="tab" aria-selected="false" aria-controls="p-predict" id="t-predict">
+        Predict
+      </button>
+      <button role="tab" aria-selected="false" aria-controls="p-spectator" id="t-spectator">
+        Spectator
+      </button>
+    </div>
+
+    <section id="p-pace" role="tabpanel" aria-labelledby="t-pace">
+      <p class="hint">Fill in any two of distance, time and pace.</p>
+      <label for="pace-preset">Distance</label>
+      <div class="row">
+        <select id="pace-preset"></select>
+        <input id="pace-distance" type="number" min="0" step="any" aria-label="Distance" />
+        <span class="u" data-unit>km</span>
+      </div>
+      <span class="lbl">Time</span>
+      <div class="row">
+        <input id="pace-h" type="number" min="0" step="1" placeholder="h" aria-label="Hours" />
+        <input id="pace-m" type="number" min="0" step="1" placeholder="min" aria-label="Minutes" />
+        <input id="pace-s" type="number" min="0" step="1" placeholder="sec" aria-label="Seconds" />
+      </div>
+      <span class="lbl">Pace per <span data-unit>km</span></span>
+      <div class="row">
+        <input
+          id="pace-pm"
+          type="number"
+          min="0"
+          step="1"
+          placeholder="min"
+          aria-label="Pace minutes"
+        />
+        <input
+          id="pace-ps"
+          type="number"
+          min="0"
+          step="1"
+          placeholder="sec"
+          aria-label="Pace seconds"
+        />
+      </div>
+      <button class="go" id="pace-go">Work it out</button>
+      <div class="result" id="pace-out" role="status" aria-live="polite"></div>
+    </section>
+
+    <section id="p-predict" role="tabpanel" aria-labelledby="t-predict" hidden>
+      <p class="hint">Enter a recent result to estimate other distances (Riegel formula).</p>
+      <label for="pr-preset">Recent race distance</label>
+      <div class="row">
+        <select id="pr-preset"></select>
+        <input id="pr-distance" type="number" min="0" step="any" aria-label="Distance" />
+        <span class="u" data-unit>km</span>
+      </div>
+      <span class="lbl">Your time</span>
+      <div class="row">
+        <input id="pr-h" type="number" min="0" step="1" placeholder="h" aria-label="Hours" />
+        <input id="pr-m" type="number" min="0" step="1" placeholder="min" aria-label="Minutes" />
+        <input id="pr-s" type="number" min="0" step="1" placeholder="sec" aria-label="Seconds" />
+      </div>
+      <button class="go" id="pr-go">Predict</button>
+      <div class="result" id="pr-out" role="status" aria-live="polite"></div>
+    </section>
+
+    <section id="p-spectator" role="tabpanel" aria-labelledby="t-spectator" hidden>
+      <p class="hint">When does your runner reach each spot?</p>
+      <label for="sp-preset">Race distance</label>
+      <div class="row">
+        <select id="sp-preset"></select>
+        <input id="sp-distance" type="number" min="0" step="any" aria-label="Distance" />
+        <span class="u" data-unit>km</span>
+      </div>
+      <span class="lbl">Runner's goal time</span>
+      <div class="row">
+        <input id="sp-h" type="number" min="0" step="1" placeholder="h" aria-label="Hours" />
+        <input id="sp-m" type="number" min="0" step="1" placeholder="min" aria-label="Minutes" />
+        <input id="sp-s" type="number" min="0" step="1" placeholder="sec" aria-label="Seconds" />
+      </div>
+      <label for="sp-start">Race start (24 hour clock)</label>
+      <input id="sp-start" type="time" value="09:00" />
+      <label for="sp-spots"
+        >Where you will stand (<span data-unit>km</span> from the start, commas)</label
+      >
+      <input id="sp-spots" type="text" placeholder="10, 21, 30" />
+      <label for="sp-margin">Be there this many minutes early</label>
+      <input id="sp-margin" type="number" min="0" step="1" value="10" />
+      <button class="go" id="sp-go">Show times</button>
+      <div class="result" id="sp-out" role="status" aria-live="polite"></div>
+    </section>
+
+    <footer>
+      <p>Free. Nothing is sent anywhere and nothing is stored.</p>
+      <p>
+        <a
+          href="https://blog.racetale.com/tools/?utm_source=extension&utm_medium=listing"
+          target="_blank"
+          rel="noopener"
+          >More free runner tools</a
+        >
+      </p>
+    </footer>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
